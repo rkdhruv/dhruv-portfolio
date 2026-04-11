@@ -1,0 +1,5 @@
+node_modules
+dist
+temp imgs
+.DS_Store
+*.local

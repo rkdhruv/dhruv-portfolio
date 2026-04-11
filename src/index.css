@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+/* ── Class-based dark mode ── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Semantic color tokens (swap with theme) ── */
+:root {
+  --page-bg: #ffffff;
+  --page-bg-alt: #f5f5f7;
+  --raised-bg: #eeeef0;
+  --highest-bg: #e4e4e7;
+  --text-primary-val: #111827;
+  --text-secondary-val: #374151;
+  --text-tertiary-val: #6b7280;
+  --text-faint-val: #9ca3af;
+  --border-val: #d4d4d8;
+  --border-subtle-val: #e5e7eb;
+  --hover-bg-val: rgba(0, 0, 0, 0.04);
+  --nav-bg-val: rgba(255, 255, 255, 0.82);
+}
+
+.dark {
+  --page-bg: #0a0a0f;
+  --page-bg-alt: #111118;
+  --raised-bg: #1a1a24;
+  --highest-bg: #252530;
+  --text-primary-val: #ffffff;
+  --text-secondary-val: #d4d4d8;
+  --text-tertiary-val: #a1a1aa;
+  --text-faint-val: #52525b;
+  --border-val: rgba(255, 255, 255, 0.1);
+  --border-subtle-val: rgba(255, 255, 255, 0.05);
+  --hover-bg-val: rgba(255, 255, 255, 0.05);
+  --nav-bg-val: rgba(10, 10, 15, 0.82);
+}
+
+/* ── Theme tokens (Tailwind v4) ── */
+@theme {
+  --font-heading: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-accent: #E11D48;
+  --color-accent-light: #FB7185;
+
+  --color-page: var(--page-bg);
+  --color-page-alt: var(--page-bg-alt);
+  --color-raised: var(--raised-bg);
+  --color-highest: var(--highest-bg);
+
+  --color-primary: var(--text-primary-val);
+  --color-secondary: var(--text-secondary-val);
+  --color-tertiary: var(--text-tertiary-val);
+  --color-faint: var(--text-faint-val);
+
+  --color-border: var(--border-val);
+  --color-border-subtle: var(--border-subtle-val);
+  --color-hover: var(--hover-bg-val);
+  --color-nav-bg: var(--nav-bg-val);
+}
+
+/* ── Base ── */
+@layer base {
+  html {
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--page-bg);
+    color: var(--text-secondary-val);
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-accent) 40%, transparent);
+  }
+}
+
+/* ── Utilities ── */
+@layer utilities {
+  .text-heading {
+    font-family: var(--font-heading);
+    color: var(--text-primary-val);
+    @apply font-bold tracking-tight;
+  }
+
+  .nav-glass {
+    background: var(--nav-bg-val);
+    border-bottom: 1px solid var(--border-subtle-val);
+    @apply backdrop-blur-xl;
+  }
+
+  .card-surface {
+    background: var(--raised-bg);
+    border: 1px solid var(--border-subtle-val);
+  }
+
+  .accent-glow {
+    box-shadow: 0 0 40px color-mix(in srgb, var(--color-accent) 20%, transparent);
+  }
+
+  /* Angled section divider */
+  .angled-top {
+    clip-path: polygon(0 40px, 100% 0, 100% 100%, 0 100%);
+    padding-top: 60px;
+  }
+
+  .angled-top-reverse {
+    clip-path: polygon(0 0, 100% 40px, 100% 100%, 0 100%);
+    padding-top: 60px;
+  }
+
+  @media (max-width: 768px) {
+    .angled-top {
+      clip-path: polygon(0 20px, 100% 0, 100% 100%, 0 100%);
+      padding-top: 40px;
+    }
+    .angled-top-reverse {
+      clip-path: polygon(0 0, 100% 20px, 100% 100%, 0 100%);
+      padding-top: 40px;
+    }
+  }
+}
