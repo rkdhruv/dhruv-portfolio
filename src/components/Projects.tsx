@@ -9,9 +9,34 @@ interface Project {
   image?: string;
   demo?: string;
   github?: string;
+  wip?: boolean;
 }
 
 const PROJECTS: Project[] = [
+  {
+    title: "Options Pricing Engine",
+    description:
+      "An options pricing engine with full Greeks computation, built to explore quantitative finance fundamentals. Implements Black-Scholes and related models with sensitivity analysis for delta, gamma, vega, theta, and rho.",
+    tags: ["Python", "NumPy", "SciPy"],
+    github: "https://github.com/rkdhruv/options-pricing-engine",
+    wip: true,
+  },
+  {
+    title: "Telos",
+    description:
+      "A native macOS habit and goal tracker, built for my daily use.",
+    tags: ["TypeScript", "Tauri 2", "React", "SQLite", "Tailwind CSS"],
+    github: "https://github.com/rkdhruv/telos",
+    wip: true,
+  },
+  {
+    title: "Physics Sims",
+    description:
+      "A collection of physics simulations focused on space — solar system mechanics, orbital dynamics, and eventually black holes. Currently features a sun-earth orbit simulation with minimal graphing.",
+    tags: ["Python", "NumPy", "Matplotlib"],
+    github: "https://github.com/rkdhruv/physics-sims",
+    wip: true,
+  },
   {
     title: "UDelaWhere??",
     description:
@@ -36,13 +61,6 @@ const PROJECTS: Project[] = [
     image: "/project-f1-visualizer.png",
     github: "https://github.com/rkdhruv/f1-data-visualizer",
   },
-  {
-    title: "Habit Tracker",
-    description:
-      "A habit tracking web application built with the WEBez framework, implementing dynamic UI components and state management for tracking daily habits and building streaks.",
-    tags: ["TypeScript", "WEBez Framework"],
-    github: "https://github.com/UD-S24-CISC181/final-project-rkdhruv",
-  },
 ];
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
@@ -65,6 +83,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             <div className="flex h-full items-center justify-center text-faint">
               <Code2 size={32} className="opacity-20" />
             </div>
+          )}
+          {project.wip && (
+            <span className="absolute right-3 top-3 rounded-full bg-page/90 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-accent backdrop-blur-sm ring-1 ring-accent/30">
+              Work in Progress
+            </span>
           )}
           {/* Hover accent bar */}
           <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-accent transition-all duration-300 group-hover:w-full" />
