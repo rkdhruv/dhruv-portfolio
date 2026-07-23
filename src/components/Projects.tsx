@@ -14,11 +14,25 @@ interface Project {
 
 const PROJECTS: Project[] = [
   {
+    title: "Options Market-Making Simulator",
+    description:
+      "A limit order book matching engine and Avellaneda–Stoikov market maker in Python. Price-time-priority LOB with O(1) cancellation via intrusive FIFO lists, driven by a Poisson-superposition order-flow simulator over a latent fair-value process. Achieves a 2.37 cross-episode P&L Sharpe vs 0.50 for a fixed-spread baseline with 12× lower volatility; extends to a European option book via a Black–Scholes theoretical-value hook.",
+    tags: ["Python", "NumPy", "SciPy", "Numba", "pandas"],
+    github: "https://github.com/rkdhruv/Options-Market-Making-Simulator",
+  },
+  {
     title: "Options Pricing Engine",
     description:
       "An options pricing engine with full Greeks computation, built to explore quantitative finance fundamentals. Implements Black-Scholes and related models with sensitivity analysis for delta, gamma, vega, theta, and rho.",
     tags: ["Python", "NumPy", "SciPy"],
     github: "https://github.com/rkdhruv/options-pricing-engine",
+  },
+  {
+    title: "Game Boy Emulator",
+    description:
+      "A Game Boy emulator built from scratch in C++, following the Pan Docs hardware reference.",
+    tags: ["C++", "Emulation", "Systems"],
+    github: "https://github.com/rkdhruv/Game-Boy-Emu",
     wip: true,
   },
   {
