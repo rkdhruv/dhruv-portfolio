@@ -25,6 +25,7 @@ const PROJECTS: Project[] = [
     description:
       "An options pricing engine with full Greeks computation, built to explore quantitative finance fundamentals. Implements Black-Scholes and related models with sensitivity analysis for delta, gamma, vega, theta, and rho.",
     tags: ["Python", "NumPy", "SciPy"],
+    image: "/project-options-pricing.png",
     github: "https://github.com/rkdhruv/options-pricing-engine",
   },
   {
@@ -40,8 +41,8 @@ const PROJECTS: Project[] = [
     description:
       "A native macOS habit and goal tracker, built for my daily use.",
     tags: ["TypeScript", "Tauri 2", "React", "SQLite", "Tailwind CSS"],
+    image: "/project-telos.png",
     github: "https://github.com/rkdhruv/telos",
-    wip: true,
   },
   {
     title: "Physics Sims",
